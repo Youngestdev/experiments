@@ -9,7 +9,7 @@ allow {
   input.request_path[1] == 'collections' 
   
   input.company == data.items[i].name
-  input.request_method == "GET"
+  input.request_method == "POST"
 }
 
 allow {
