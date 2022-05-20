@@ -9,7 +9,7 @@ allow {
   input.request_path[1] == 'collections' 
   
   input.company == data.items[i].name
-  input.request_method == "POST"
+  input.request_method == "GET"
 }
 
 allow {
@@ -24,6 +24,6 @@ allow {
   input.company == "geobeyond"
   some i 
   data.items[i].name == input.preferred_username 
-  data.items[i].everyone == groupname
+  data.items[i].registered == groupname
 }
 
