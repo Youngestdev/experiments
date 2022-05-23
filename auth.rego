@@ -21,9 +21,6 @@ allow {
   input.request_path[0] == 'v1' 
   input.request_path[1] == 'collections' 
   
-  input.company == "geobeyond"
-  some i 
-  data.items[i].name == input.preferred_username 
-  data.items[i].everyone == groupname
+  input.company == "fastgeoapi"
 }
 
