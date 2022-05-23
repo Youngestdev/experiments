@@ -24,6 +24,6 @@ allow {
   input.company == "geobeyond"
   some i 
   data.items[i].name == input.preferred_username 
-  data.items[i].registered == groupname
+  data.items[i].everyone == groupname
 }
 
