@@ -58,3 +58,12 @@ allow {
   input.groupname == "admin"
 }
 
+allow {
+  input.request_path == ["v1", "collections", "obs", ""]
+  input.company == "geobeyond"
+  input.request_method == "POST"
+  some i 
+  data.items[i].username == input.youngestdev 
+  data.items[i]. company == input. osgeo
+}
+
