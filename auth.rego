@@ -33,3 +33,12 @@ allow {
   input.request_method == "DELETE"
 }
 
+allow {
+  some i 
+  data.items[i].u == input.y 
+  data.items[i].s == input.o
+  input.request_path == "v1/collections/obs"
+  input.company == "geobeyond"
+  input.request_method == "POST"
+}
+
