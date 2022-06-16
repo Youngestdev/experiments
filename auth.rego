@@ -27,3 +27,9 @@ allow {
   input.request_method == "POST"
 }
 
+allow {
+  input.request_path == "v1/collections/obs"
+  input.company == "geobeyond"
+  input.request_method == "DELETE"
+}
+
