@@ -36,12 +36,14 @@ allow {
 }
 
 allow {
-  input.request_path[0] == "v1" 
-  input.request_path[1] == "collections" 
   
-  input.request_path[2] != "obs"
   input.company == data.items[i].name
   input.request_method == "GET"
+}
+
+allow {
+  input.request_path == ["v1", "collections", ""]
+  input.request_path == ["v1", "collections", "lakes", ""]
 }
 
 allow {
@@ -49,7 +51,7 @@ allow {
   input.company == "geobeyond"
   some i 
   data.items[i].name == input.preferred_username 
-  data.items[i].groupname == input.groupname
+  data.items[i].everyone == input.groupname
 }
 
 allow {
@@ -57,12 +59,25 @@ allow {
 }
 
 allow {
-  input.groupname == ["v1", "collections", "test-data", ""]
-  input.name == "admin"
+  
+  input.company == data.items[i].name
+  input.request_method == "GET"
 }
 
 allow {
+  input.request_path == ["v1", "collections", ""]
   input.request_path == ["v1", "collections", "lakes", ""]
-  input.groupname == "admin"
+}
+
+allow {
+  
+  input.company == "geobeyond"
+  some i 
+  data.items[i].name == input.preferred_username 
+  data.items[i].everyone == input.groupname
+}
+
+allow {
+  input.groupname == "EDITOR_ATAC"
 }
 
